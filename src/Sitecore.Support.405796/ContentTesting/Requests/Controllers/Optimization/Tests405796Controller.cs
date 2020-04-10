@@ -6,6 +6,7 @@ using Sitecore.ContentTesting.Model.Data.Items;
 using Sitecore.ContentTesting.ViewModel;
 using Sitecore.Data;
 using Sitecore.Data.Items;
+using Sitecore.Links;
 using Sitecore.Web.Http.Filters;
 using System;
 using System.Collections.Generic;
@@ -118,7 +119,9 @@ namespace Sitecore.Support.ContentTesting.Requests.Controllers.Optimization
 
                 parsedTests.Add(testConfiguration.TestDefinitionItem.ID, testConfiguration);
 
-                results.Add(new ExecutedTestViewModel
+                var siteInfo = LinkManager.GetPreviewSiteContext(testItem);
+
+                results.Add(new Sitecore.Support.ContentTesting.ViewModel.ExecutedTestViewModel
                 {
                     HostPageId = hostItem.ID.ToString(),
                     HostPageUri = hostItem.Uri.ToDataUri(),
@@ -133,7 +136,8 @@ namespace Sitecore.Support.ContentTesting.Requests.Controllers.Optimization
                     ItemId = testDefItem.ID.ToString(),
                     ContentOnly = testConfiguration.TestSet.Variables.Count == testDefItem.PageLevelTestVariables.Count,
                     TestType = testConfiguration.TestType,
-                    TestId = testConfiguration.TestDefinitionItem.ID
+                    TestId = testConfiguration.TestDefinitionItem.ID,
+                    SiteName = siteInfo.Name
                 });
             }
 
