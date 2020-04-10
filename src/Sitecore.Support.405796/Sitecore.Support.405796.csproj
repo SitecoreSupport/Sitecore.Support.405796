@@ -92,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\zzz\Sitecore.Support.405796.config" />
+    <Content Include="sitecore\shell\client\Applications\ContentTesting\Common\lib\EditUtil.js" />
+    <Content Include="sitecore\shell\client\Applications\ContentTesting\Common\lib\ExecutedTestsList.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

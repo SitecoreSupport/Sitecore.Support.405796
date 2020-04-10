@@ -119,7 +119,7 @@ namespace Sitecore.Support.ContentTesting.Requests.Controllers.Optimization
 
                 parsedTests.Add(testConfiguration.TestDefinitionItem.ID, testConfiguration);
 
-                var siteInfo = LinkManager.GetPreviewSiteContext(testItem);
+                var siteInfo = LinkManager.GetPreviewSiteContext(hostItem);
 
                 results.Add(new Sitecore.Support.ContentTesting.ViewModel.ExecutedTestViewModel
                 {
